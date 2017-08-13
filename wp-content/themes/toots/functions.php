@@ -557,3 +557,6 @@ function wptoots_tag_cloud($args) {
 }
 
 add_filter('widget_tag_cloud_args', 'wptoots_tag_cloud');
+
+
+

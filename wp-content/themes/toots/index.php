@@ -10,39 +10,11 @@
 
                     <!--цикл вывода постов-->
                     <?php if (have_posts()) : ?><!--если есть пості в БД-->
-                        <?php while (have_posts()) : the_post(); ?>
+                        <?php while (have_posts()) : the_post();
 
-                            <article class="blog_post">
-                                <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?> </a> </h4>
+                            get_template_part('template-parts/content', get_post_format());
 
-                                <div class="blog_category">
-                                    <ul>
-                                        <li><?php the_category(','); ?> </li>
-
-                                    </ul>
-                                </div>
-
-                                <div class="blog_text">
-                                    <ul>
-                                        <li> | </li>
-                                        <li> Post By :<?php the_author_posts_link(); ?> </li>
-                                        <li> | </li>
-                                        <li>  On :<?php the_time('j F Y'); ?> </li>
-                                    </ul>
-                                </div>
-
-                                <div class="blog_post_img">
-                                    <a href="<?php the_permalink(); ?>"> <?php the_post_thumbnail(); ?> </a>
-                                </div>
-
-                                <?php the_excerpt(); ?>
-
-                                <a href="#"> Continue reading <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-
-
-                            </article>
-
-                        <?php endwhile; ?>
+                         endwhile; ?>
                     <?php endif; ?>
 
                     <?php wptoots_pagination(); ?>
