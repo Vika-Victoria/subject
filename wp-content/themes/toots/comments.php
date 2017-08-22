@@ -33,7 +33,10 @@ if ( post_password_required() )
                 'style'       => 'ol',
                 'short_ping'  => true,
                 'avatar_size' => 74,
+                //выводим функцию для вывода разметки html
                 'callback' => 'wptoots_list_comment',
+                //вложеность комментариев
+                'max_depth' => 2,
             ) );
             ?>
         </ol><!-- .comment-list -->

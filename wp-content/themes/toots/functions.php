@@ -559,7 +559,7 @@ function wptoots_tag_cloud($args) {
 add_filter('widget_tag_cloud_args', 'wptoots_tag_cloud');
 
 
-
+//функция разметки
 function wptoots_list_comment($comment, $args, $depth) {
     if ( 'div' === $args['style'] ) {
         $tag       = 'div';
@@ -572,23 +572,26 @@ function wptoots_list_comment($comment, $args, $depth) {
 
     <<?php echo $tag ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
     <?php if ( 'div' != $args['style'] ) : ?>
-        <div id="div-comment-<?php comment_ID() ?>" class="comment-body">
+        <div id="div-comment-<?php comment_ID(); ?>" class="comment-body">
     <?php endif; ?>
+   <div class="comment-wrap-info">
     <div class="comment-author vcard">
         <?php if ( $args['avatar_size'] != 0 ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
-        <?php printf( __( '<cite class="fn">%s</cite> <span class="says">says:</span>' ), get_comment_author_link() ); ?>
     </div>
-    <?php if ( $comment->comment_approved == '0' ) : ?>
-        <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></em>
-        <br />
-    <?php endif; ?>
-
-    <div class="comment-meta commentmetadata"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>">
+    <div class="comment-meta commentmetadata">
+        <?php printf( __( '<cite class="fn author-name">%s</cite> ' ), get_comment_author_link() ); ?>
+        <br>
+        <a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>" class="comment-date">
             <?php
             /* translators: 1: date, 2: time */
             printf( __('%1$s at %2$s'), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)' ), '  ', '' );
         ?>
     </div>
+   </div>
+    <?php if ( $comment->comment_approved == '0' ) : ?>
+        <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></em>
+        <br />
+    <?php endif; ?>
 
     <?php comment_text(); ?>
 
