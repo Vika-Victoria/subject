@@ -59,6 +59,9 @@ function wptoots_scripts() {
     wp_enqueue_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css');//возвращает url к текущей теме
     wp_enqueue_style('animate', get_template_directory_uri() . '/css/animate.min.css');
     wp_enqueue_style('font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css');
+    wp_enqueue_style('font-roboto', 'https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700');
+    wp_enqueue_style('font-open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+
     wp_enqueue_script('bootstrap', get_template_directory() . '/js/bootstrap.min.js');
     wp_enqueue_script('css3-animate-it', get_template_directory() . '/js/css3-animate-it.js');
     wp_enqueue_script('agency', get_template_directory() . '/js/agency.js');
